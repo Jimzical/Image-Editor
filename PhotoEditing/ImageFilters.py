@@ -9,7 +9,8 @@ The functions are:
     - OilPainting
     - BlackAndWhite
     - GrayScale
-    - Blur  
+    - Blur 
+    - ImageInvertColor  # not tested yet 
 
 
     # under construction
@@ -20,7 +21,7 @@ The functions are:
 All the Customization fields are optional and usually between 0 and 100
 
 '''
-
+.
 def OilPainting(img, size = 5, levels = 10 , show = False, ResizeValue = 1):
     '''
     # To apply oil painting effect to an image
@@ -199,3 +200,18 @@ def ImageBlur(img,show=False,ResizeValue=1):
     else:
         return img
 
+def ImageInvertColor(img,show=False,ResizeValue=1):
+    '''
+    # To Invert Colors an Image
+    - @img = the image that you want to invert colors of
+    Optional:
+    - @show = if you want to show the image (default = False) [Doesnt Return the image, Doesnt save the image]
+    - @ResizeValue = the value that you want to resize the image by (default = 1) (Range[0-1])
+
+     Return the image with inverted colors
+    '''
+    img = cv2.bitwise_not(img)
+    if show:
+        showImg(img,Resize=ResizeValue)
+    else:
+        return img
